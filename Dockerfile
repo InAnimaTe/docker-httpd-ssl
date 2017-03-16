@@ -1,5 +1,9 @@
 FROM ilkka/httpd
 
+# These are self-generated certs not meant for any real use!
+COPY cert.pem /usr/local/apache2/conf/server.crt
+COPY key.pem /usr/local/apache2/conf/server.key
+
 EXPOSE 443
 
 RUN sed -i 's%#\(Include conf/extra/httpd-ssl.conf\)%\1%' conf/httpd.conf \
